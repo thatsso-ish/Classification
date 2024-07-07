@@ -1,5 +1,3 @@
-##### **Please note**: Download the repository as a zipped folder, create a private repository, and upload the content to it. This way, you can collaborate with your teammates effectively.
-
 ## 2401FTDS_Classification_Project
 
 # Analysing News Articles Dataset
@@ -12,134 +10,89 @@
 </div>
 
 ## Table of contents
-* [1. Project Overview](#project-description)
-* [2. Dataset](#dataset)
-* [3. Packages](#packages)
-* [4. Environment](#environment)
-* [5. MLFlow](#mlflow)
-* [6. Streamlit](#streamlit)
+* [1. Introduction](#Introduction)
+* [2. Data Loading and Exploration](#Data-Loading-and-Exploration)
+* [3. Data Preprocessing](#Data-Preprocessing)
+* [4. Model Building](#Model-Building)
+* [5. Evaluation](#Evaluation)
+* [6. MLflow Integration](#MLflow)
 * [7. Team Members](#team-members)
 
-## 1. Project Overview <a class="anchor" id="project-description"></a>
 
-Your team has been hired as data science consultants for a news outlet to create classification models using Python and deploy it as a web application with Streamlit. 
-The aim is to provide you with a hands-on demonstration of applying machine learning techniques to natural language processing tasks.  This end-to-end project encompasses the entire workflow, including data loading, preprocessing, model training, evaluation, and final deployment. The primary stakeholders for the news classification project for the news outlet could include the editorial team, IT/tech support, management, readers, etc. These groups are interested in improved content categorization, operational efficiency, and enhanced user experience.
+## 1. Introduction <a class="anchor" id="Introduction"></a>
+This notebook contains a comprehensive analysis for a classification problem. It involves data loading, preprocessing, model building, and evaluation to predict the target variable based on given features.
+
+## 2. Data Loading and Exploration <a class="anchor" id="Data-Loading-and-Exploration"></a>
+In this section, we load the dataset and perform initial exploration to understand the structure and content of the data. Key steps include:
+- Importing necessary libraries.
+- Loading the dataset using pandas.
+- Displaying the first few rows of the dataset.
+- Checking for missing values and basic statistics of the dataset.
 
 
-## 2. Dataset <a class="anchor" id="dataset"></a>
-The dataset is comprised of news articles that need to be classified into categories based on their content, including `Business`, `Technology`, `Sports`, `Education`, and `Entertainment`. You can find both the `train.csv` and `test.csv` datasets [here](https://github.com/ereshia/2401FTDS_Classification_Project/tree/main/Data/processed).
+## 3. Data Preprocessing <a class="anchor" id="Data-Preprocessing"></a>
+Data preprocessing involves cleaning and preparing the data for model building. Steps include:
+- Handling missing values.
+- Encoding categorical variables.
+- Feature scaling if necessary.
+- Splitting the dataset into training and test sets.
 
-**Dataset Features:**
-| **Column**                                                                                  | **Description**              
-|---------------------------------------------------------------------------------------------|--------------------   
-| Headlines   | 	The headline or title of the news article.
-| Description | A brief summary or description of the news article.
-| Content | The full text content of the news article.
-| URL | The URL link to the original source of the news article.
-| Category | The category or topic of the news article (e.g., business, education, entertainment, sports, technology).
-
-## 3. Packages <a class="anchor" id="packages"></a>
-
-To carry out all the objectives for this repo, the following necessary dependencies were loaded:
-+ `Pandas 2.2.2` and `Numpy 1.26`
-+ `Matplotlib 3.8.4`
+## 4. Model Building <a class="anchor" id="Model-Building"></a>
+Here, we build and train various machine learning models to classify the target variable. This section covers:
+- Selecting appropriate machine learning algorithms (e.g., Logistic Regression, KNN, SVM, Random Forest, etc.).
+- Training the models on the training set.
+- Hyperparameter tuning to improve model performance.
  
 
-## 4. Environment <a class="anchor" id="environment"></a>
-
-It's highly recommended to use a virtual environment for your projects, there are many ways to do this; we've outlined one such method below. Make sure to regularly update this section. This way, anyone who clones your repository will know exactly what steps to follow to prepare the necessary environment. The instructions provided here should enable a person to clone your repo and quickly get started.
-
-### Create the new evironment - you only need to do this once
-
-```bash
-# create the conda environment
-conda create --name <env>
-```
-
-### This is how you activate the virtual environment in a terminal and install the project dependencies
-
-```bash
-# activate the virtual environment
-conda activate <env>
-# install the pip package
-conda install pip
-# install the requirements for this project
-pip install -r requirements.txt
-```
-## 5. MLFlow<a class="anchor" id="mlflow"></a>
-
-MLOps, which stands for Machine Learning Operations, is a practice focused on managing and streamlining the lifecycle of machine learning models. The modern MLOps tool, MLflow is designed to facilitate collaboration on data projects, enabling teams to track experiments, manage models, and streamline deployment processes. For experimentation, testing, and reproducibility of the machine learning models in this project, you will use MLflow. MLflow will help track hyperparameter tuning by logging and comparing different model configurations. This allows you to easily identify and select the best-performing model based on the logged metrics.
-
-- Please have a look here and follow the instructions: https://www.mlflow.org/docs/2.7.1/quickstart.html#quickstart
-
-## 6. Streamlit<a class="anchor" id="streamlit"></a>
-
-### What is Streamlit?
-
-[Streamlit](https://www.streamlit.io/)  is a framework that acts as a web server with dynamic visuals, multiple responsive pages, and robust deployment of your models.
-
-In its own words:
-> Streamlit ... is the easiest way for data scientists and machine learning engineers to create beautiful, performant apps in only a few hours!  All in pure Python. All for free.
-
-> It’s a simple and powerful app model that lets you build rich UIs incredibly quickly.
-
-[Streamlit](https://www.streamlit.io/)  takes away much of the background work needed in order to get a platform which can deploy your models to clients and end users. Meaning that you get to focus on the important stuff (related to the data), and can largely ignore the rest. This will allow you to become a lot more productive.  
-
-##### Description of files
-
-For this repository, we are only concerned with a single file:
-
-| File Name              | Description                       |
-| :--------------------- | :--------------------             |
-| `base_app.py`          | Streamlit application definition. |
+## 5. Evaluation <a class="anchor" id="Evaluation"></a>
+After building the models, we evaluate their performance using various metrics. This section includes:
+- Making predictions on the test set.
+- Calculating accuracy, precision, recall, F1-score, and other relevant metrics.
+- Comparing the performance of different models.
+- Summarizing the findings and providing recommendations or next steps.
 
 
-#### 6.1 Running the Streamlit web app on your local machine
+## 6. MLflow Integration <a class="anchor" id="MLflow"></a>
+MLflow is used to track and manage experiments, models, and metrics throughout the machine learning lifecycle. This section includes:
 
-As a first step to becoming familiar with our web app's functioning, we recommend setting up a running instance on your own local machine. To do this, follow the steps below by running the given commands within a Git bash (Windows), or terminal (Mac/Linux):
+Setting up MLflow.
+* Logging experiments and parameters.
+* Tracking model performance metrics.
+* Saving and loading models using MLflow.
 
-- Ensure that you have the prerequisite Python libraries installed on your local machine:
+# Steps to Use MLflow
+* Install MLflow:
 
- ```bash
- pip install -U streamlit numpy pandas scikit-learn
- ```
-
-- Navigate to the base of your repo where your base_app.py is stored, and start the Streamlit app.
-
- ```bash
- cd 2401FTDS_Classification_Project/Streamlit/
- streamlit run base_app.py
- ```
-
- If the web server was able to initialise successfully, the following message should be displayed within your bash/terminal session:
-
-```
-  You can now view your Streamlit app in your browser.
-
-    Local URL: http://localhost:8501
-    Network URL: http://192.168.43.41:8501
-```
-You should also be automatically directed to the base page of your web app. This should look something like:
-
-<div id="s_image" align="center">
-  <img src="https://github.com/ereshia/2401FTDS_Classification_Project/blob/main/Streamlit_image.png" width="850" height="400" alt=""/>
-</div>
-
-Congratulations! You've now officially deployed your first web application!
-
-#### 6.2 Deploying your Streamlit web app
-
-- To deploy your app for all to see, click on `deploy`.
+  pip install mlflow
+* Set Up MLflow Tracking Server:
   
-- Please note: If it's your first time deploying it will redirect you to set up an account first. Please follow the instructions.
+  mlflow server
+* Log Parameters and Metrics:
+  
+  import mlflow
+  
+  import mlflow.sklearn
+
+  mlflow.start_run()
+# Log parameters
+  mlflow.log_param("param_name", param_value)
+# Log metrics
+  mlflow.log_metric("metric_name", metric_value)
+# Log model
+  mlflow.sklearn.log_model(model, "model")
+
+  mlflow.end_run()
+* View Results:
+Access the MLflow UI to view logged experiments and models at http://localhost:5000.
+
 
 ## 7. Team Members<a class="anchor" id="team-members"></a>
 
 | Name                                                                                        |  Email              
 |---------------------------------------------------------------------------------------------|--------------------             
-| [Marc Marais](https://github.com/marcmarais)                                                | mmarais@sandtech.com
-| [James Beta](https://github.com/James-Beta)                                                                                  | jbeta@sandtech.com
-| [Oladare Adekunle](https://github.com/DareSandtech)                                                                            | oadekunle@sandtech.com
-| [Ereshia Gabier](https://github.com/ereshia)                                                | egabier@sandtech.com
-| [Annegret Muller](https://github.com/AnnegretExplore)                                       | amuller@sandtech.com
-| [Zintle Faltein-Maqubela](https://github.com/ZintleFaltein)                                                                   | zfaltein-maqubela@sandtech.com
+| [Refilwe Masupu](https://github.com/Refilwemasapu)                                          | skymasapu12@gmail.com
+| [Sihle Kalolo](https://github.com/Toni8)                                                    | kalolohlesi@gmail.com
+| [Ishmael Ngobeni](https://github.com/thatsso-ish)                                           | ismaelkatlego0@gmail.com
+| [Cleragy Jilani](https://github.com/cleragy)                                                | kanunimkonza@gmail.com
+| [Msizi Mzobe](https://github.com/OMMzobe)                                                   | ommzobe@gmail.com
+| [Sandile Jali](https://github.com/sandilejali)                                              | sandilejali31@gmail.com
